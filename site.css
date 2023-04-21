@@ -1,0 +1,35 @@
+main {
+    background-color: rgb(196, 200, 203);
+    padding: 4px;
+    color: #202020;
+}
+
+h1, h2 {
+    color: darkblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img {
+    max-width: 500px;
+}
+
+#headshot {
+    padding: 2px;
+    border: 1px solid #808080;
+    margin: 8px;
+    border-radius: 8px;
+    max-width: 150px;
+}
+
+.experience {
+    border: inset 1px;
+    margin-bottom: 4px;
+    padding: 4px;
+    background-color: white;
+    color: #222;
+}
+
+.experience .title {
+    font-weight: bold;
+}
+
