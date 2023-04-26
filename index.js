@@ -1,4 +1,7 @@
 // //Index.js
+
+import Contact from "./Contact.js";
+
 // var number = 50;
 // let myName = "Abhishek ";
 // //document.writeln("Hello World");
@@ -63,30 +66,4 @@ for(let i = 0; i < experiences.length; i++) {
     });
 }
 
-class Contact {
 
-    constructor(contactForm) {
-        this.fullName = contactForm.elements["fullName"].value;
-        this.email = contactForm.elements["email"].value;
-        this.subject = contactForm.elements["subject"].value;
-        this.message = contactForm.elements["msg"].value;
-    }
-
-    fullName = "";
-    email = "";
-    subject = "";
-    message = "";
-
-    send() {
-        console.info(this.formatMessage());
-        showMessage("We're not sending emails yet...feature for version 2.");
-    }
-
-    formatMessage() {
-        //return `This is a string`;
-        return `To: ${this.fullName}
-                Email: ${this.email}
-                Subject: ${this.subject}
-                Body: ${this.message}`;
-    }
-}
