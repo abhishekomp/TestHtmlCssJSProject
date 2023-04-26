@@ -6,6 +6,8 @@
 // document.writeln(myName + number);
 // //alert("Hello World");
 
+const formInfo = document.getElementById("formInfo");
+
 let hasJob = true;
 if (hasJob) {
     //I have a job
@@ -17,7 +19,7 @@ if (hasJob) {
 }
 
 //let today = new Date();
-let today = new Date("04/29/2023");
+let today = new Date("04/26/2023");
 let dayOfWeek = today.getDay();
 // dayOfWeek as 0,1.2,3,4,5,6
 if(dayOfWeek === 0 || dayOfWeek === 6) {
@@ -25,7 +27,37 @@ if(dayOfWeek === 0 || dayOfWeek === 6) {
 }
 
 function showMessage(message) {
-    document.writeln("<p>" + message + "</p>");
-    document.writeln("<hr/>")
+    //const formInfo = document.getElementById("formInfo");
+    formInfo.innerHTML = "<p>" + message + "</p>";
+    // document.writeln("<p>" + message + "</p>");
+    // document.writeln("<hr/>")
 }
+
+function clearMessage() {
+    formInfo.innerHTML = "";
+}
+
+//Handling event of clicking a button
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    showMessage("Sending your message...");
+});
+
+function sendMessage() {
+    showMessage("Please wait, sending your email");
+}
+
+//Working with collections
+const experiences = document.getElementsByClassName("experience");
+for(let i = 0; i < experiences.length; i++) {
+    const item = experiences[i];
+    item.addEventListener("mouseenter", function(event) {
+        event.target.style = "background-color: #999999;";
+    });
+    item.addEventListener("mouseleave", function(event) {
+        event.target.style = "";
+    });
+}
+
 
