@@ -7,6 +7,7 @@
 // //alert("Hello World");
 
 const formInfo = document.getElementById("formInfo");
+const contactForm = document.getElementById("contactForm");
 
 let hasJob = true;
 if (hasJob) {
@@ -38,10 +39,12 @@ function clearMessage() {
 }
 
 //Handling event of clicking a button
-const contactForm = document.getElementById("contactForm");
+//const contactForm = document.getElementById("contactForm");
 contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    showMessage("Sending your message...");
+    const contact = new Contact(contactForm);
+    //showMessage("Sending your message...");
+    contact.send();
 });
 
 function sendMessage() {
@@ -60,4 +63,30 @@ for(let i = 0; i < experiences.length; i++) {
     });
 }
 
+class Contact {
 
+    constructor(contactForm) {
+        this.fullName = contactForm.elements["fullName"].value;
+        this.email = contactForm.elements["email"].value;
+        this.subject = contactForm.elements["subject"].value;
+        this.message = contactForm.elements["msg"].value;
+    }
+
+    fullName = "";
+    email = "";
+    subject = "";
+    message = "";
+
+    send() {
+        console.info(this.formatMessage());
+        showMessage("We're not sending emails yet...feature for version 2.");
+    }
+
+    formatMessage() {
+        //return `This is a string`;
+        return `To: ${this.fullName}
+                Email: ${this.email}
+                Subject: ${this.subject}
+                Body: ${this.message}`;
+    }
+}
